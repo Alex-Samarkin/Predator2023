@@ -8,31 +8,41 @@ namespace LotcaClassLib
 {
     public class Spec : IEquatable<Spec?>
     {
+        #region Properties
+        /// x y coords
         public double X { get; set; } = 0;
         public double Y { get; set; } = 0;
+        /// velocities and change in velocities
         public double v { get; set; } = 0;
         public double dv { get; set; } = 0;
-
+        /// angle of velosity
         public double phi { get; set; } = 0;
+        /// angle to change angle of velosity
         public double dphi { get; set; } = 0;
-
+        /// age of being
         public int Age { get; set; } = 0;
+        #endregion
 
+        /// clip value to the bounds <from> and <to>
         public double Clip(double value, double from, double to)
         {
             if (value < from) value = from; if (value > to) value = to;
             return value;
         }
+        /// update velocities and change in velocities
         public Spec Update(double Dv=0, double Dphi = 0, double VMax = double.MaxValue)
         {
+            // update x and y
+            X = X + v * Math.Cos(phi);
+            Y = Y + v * Math.Sin(phi);
+            // update velocities
+            v = Clip(v + dv, 0, VMax);
             dv = Dv;
+
+            phi = phi + dphi;
             dphi = Dphi;
-            v += dv;
-            v = Clip(v, 0, VMax);
-            phi += dphi;
-
+            // update age
             Age++;
-
             return this;
         }
 
@@ -48,9 +58,14 @@ namespace LotcaClassLib
         }
         public Spec() { }
 
+        private string endl = Environment.NewLine;
+
         public override string ToString()
         {
-            return $"{{{nameof(X)}={X.ToString()}, {nameof(Y)}={Y.ToString()}, {nameof(v)}={v.ToString()}, {nameof(dv)}={dv.ToString()}, {nameof(phi)}={phi.ToString()}, {nameof(dphi)}={dphi.ToString()}, {nameof(Age)}={Age.ToString()}}}";
+            return $"{nameof(X)}={X}, {nameof(Y)}={Y}, " + endl +
+                $"{nameof(v)}={v}, {nameof(dv)}={dv.ToString()}, " + endl +
+                $"{nameof(phi)}={phi}, {nameof(dphi)}={dphi}, " + endl +
+                $"{nameof(Age)}={Age}";
         }
 
         public override bool Equals(object? obj)

@@ -43,6 +43,8 @@
             toolStripButton5 = new ToolStripButton();
             toolStripSeparator4 = new ToolStripSeparator();
             toolStripButton7 = new ToolStripButton();
+            toolStripButton8 = new ToolStripButton();
+            toolStripButton9 = new ToolStripButton();
             toolStripContainer1 = new ToolStripContainer();
             richTextBox1 = new RichTextBox();
             toolStrip1.SuspendLayout();
@@ -54,10 +56,10 @@
             // toolStrip1
             // 
             toolStrip1.Dock = DockStyle.None;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripSeparator1, toolStripSeparator2, toolStripButton1, toolStripButton2, toolStripButton3, toolStripButton6, toolStripButton4, toolStripSeparator3, toolStripTextBox1, toolStripButton5, toolStripSeparator4, toolStripButton7 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripSeparator1, toolStripSeparator2, toolStripButton1, toolStripButton2, toolStripButton3, toolStripButton6, toolStripButton4, toolStripSeparator3, toolStripTextBox1, toolStripButton5, toolStripSeparator4, toolStripButton7, toolStripButton8, toolStripButton9 });
             toolStrip1.Location = new Point(3, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(761, 25);
+            toolStrip1.Size = new Size(859, 25);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "Лог дата";
             // 
@@ -165,6 +167,26 @@
             toolStripButton7.Text = "Run Test >>";
             toolStripButton7.Click += toolStripButton7_Click;
             // 
+            // toolStripButton8
+            // 
+            toolStripButton8.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripButton8.Image = (Image)resources.GetObject("toolStripButton8.Image");
+            toolStripButton8.ImageTransparentColor = Color.Magenta;
+            toolStripButton8.Name = "toolStripButton8";
+            toolStripButton8.Size = new Size(46, 22);
+            toolStripButton8.Text = "PlotXY";
+            toolStripButton8.Click += toolStripButton8_Click;
+            // 
+            // toolStripButton9
+            // 
+            toolStripButton9.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripButton9.Image = (Image)resources.GetObject("toolStripButton9.Image");
+            toolStripButton9.ImageTransparentColor = Color.Magenta;
+            toolStripButton9.Name = "toolStripButton9";
+            toolStripButton9.Size = new Size(52, 22);
+            toolStripButton9.Text = "PlotXY2";
+            toolStripButton9.Click += toolStripButton9_Click;
+            // 
             // toolStripContainer1
             // 
             // 
@@ -228,5 +250,7 @@
         private RichTextBox richTextBox1;
         private ToolStripButton toolStripButton6;
         private ToolStripButton toolStripButton7;
+        private ToolStripButton toolStripButton8;
+        private ToolStripButton toolStripButton9;
     }
 }
