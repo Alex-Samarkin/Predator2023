@@ -11,6 +11,7 @@ using MathNet.Numerics.Distributions;
 using System.Security.Cryptography;
 using System.Xml.Schema;
 using System.ComponentModel;
+using Microsoft.VisualBasic;
 
 namespace LotcaClassLib
 {
@@ -329,6 +330,26 @@ namespace LotcaClassLib
             return d2;
         }
 
+        /// <summary>
+        /// взаимодействие между двумя видами
+        /// </summary>
+        /// <param name="Spec1"> кролики - жертвы </param>
+        /// <param name="Spec2"> волки - хищники </param>
+        /// <param name="bornRatio"> - вероятность рождения хищника от встречи с жертвой</param>
+        /// <param name="dieRatio"> - вероятность смерти жертвы от встречи с хищником</param>
+        public static void Interaction(SpecsPack Spec1, SpecsPack Spec2, 
+            double bornRatio = 0.2, double dieRatio = 0.25)
+        {
+            var d2 = Spec1.Distance2(Spec2);
+            var n2 = Spec1.IsNear(Spec2);
+            var count_near = 0;
+            foreach (var item in n2)
+            {
+                if (item) count_near++;
+            }
+            // убиваем кроликов
+            // рождаем волков
+        }
 
         #endregion
     }

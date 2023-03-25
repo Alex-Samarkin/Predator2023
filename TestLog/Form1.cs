@@ -145,9 +145,15 @@ namespace TestLog
         {
             xy_form3.Hide();
             xy_form3.Show();
-            xy_form3.plot(SpecsPack.X(),SpecsPack.Y(),SpecsPack2.X(),SpecsPack2.Y(), 
-                SpecsPack.CountOfSpecs.ToArray(),SpecsPack2.CountOfSpecs.ToArray());
+            xy_form3.plot(SpecsPack.X(), SpecsPack.Y(), SpecsPack2.X(), SpecsPack2.Y(),
+                SpecsPack.CountOfSpecs.ToArray(), SpecsPack2.CountOfSpecs.ToArray());
             xy_form3.Invalidate();
+        }
+
+        private void toolStripButton10_Click(object sender, EventArgs e)
+        {
+            var f5 = new FiveGraphForm();
+            f5.Show();
         }
     }
 }

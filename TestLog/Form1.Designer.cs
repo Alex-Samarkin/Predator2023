@@ -47,6 +47,7 @@
             toolStripButton9 = new ToolStripButton();
             toolStripContainer1 = new ToolStripContainer();
             richTextBox1 = new RichTextBox();
+            toolStripButton10 = new ToolStripButton();
             toolStrip1.SuspendLayout();
             toolStripContainer1.ContentPanel.SuspendLayout();
             toolStripContainer1.TopToolStripPanel.SuspendLayout();
@@ -56,10 +57,10 @@
             // toolStrip1
             // 
             toolStrip1.Dock = DockStyle.None;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripSeparator1, toolStripSeparator2, toolStripButton1, toolStripButton2, toolStripButton3, toolStripButton6, toolStripButton4, toolStripSeparator3, toolStripTextBox1, toolStripButton5, toolStripSeparator4, toolStripButton7, toolStripButton8, toolStripButton9 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripSeparator1, toolStripSeparator2, toolStripButton1, toolStripButton2, toolStripButton3, toolStripButton6, toolStripButton4, toolStripSeparator3, toolStripTextBox1, toolStripButton5, toolStripSeparator4, toolStripButton7, toolStripButton8, toolStripButton9, toolStripButton10 });
             toolStrip1.Location = new Point(3, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(859, 25);
+            toolStrip1.Size = new Size(936, 25);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "Лог дата";
             // 
@@ -214,6 +215,16 @@
             richTextBox1.TabIndex = 0;
             richTextBox1.Text = "";
             // 
+            // toolStripButton10
+            // 
+            toolStripButton10.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripButton10.Image = (Image)resources.GetObject("toolStripButton10.Image");
+            toolStripButton10.ImageTransparentColor = Color.Magenta;
+            toolStripButton10.Name = "toolStripButton10";
+            toolStripButton10.Size = new Size(77, 22);
+            toolStripButton10.Text = "5 grapf form";
+            toolStripButton10.Click += toolStripButton10_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -252,5 +263,6 @@
         private ToolStripButton toolStripButton7;
         private ToolStripButton toolStripButton8;
         private ToolStripButton toolStripButton9;
+        private ToolStripButton toolStripButton10;
     }
 }

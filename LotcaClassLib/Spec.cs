@@ -9,28 +9,38 @@ namespace LotcaClassLib
     public class Spec : IEquatable<Spec?>
     {
         #region Properties
+
         /// x y coords
         public double X { get; set; } = 0;
+
         public double Y { get; set; } = 0;
+
         /// velocities and change in velocities
         public double v { get; set; } = 0;
+
         public double dv { get; set; } = 0;
+
         /// angle of velosity
         public double phi { get; set; } = 0;
+
         /// angle to change angle of velosity
         public double dphi { get; set; } = 0;
+
         /// age of being
         public int Age { get; set; } = 0;
+
         #endregion
 
         /// clip value to the bounds <from> and <to>
         public double Clip(double value, double from, double to)
         {
-            if (value < from) value = from; if (value > to) value = to;
+            if (value < from) value = from;
+            if (value > to) value = to;
             return value;
         }
+
         /// update velocities and change in velocities
-        public Spec Update(double Dv=0, double Dphi = 0, double VMax = double.MaxValue)
+        public Spec Update(double Dv = 0, double Dphi = 0, double VMax = double.MaxValue)
         {
             // update x and y
             X = X + v * Math.Cos(phi);
@@ -56,21 +66,31 @@ namespace LotcaClassLib
             this.dphi = dphi;
             Age = age;
         }
-        public Spec() { }
+
+        public Spec()
+        {
+        }
 
         private string endl = Environment.NewLine;
 
         public override string ToString()
         {
             return $"{nameof(X)}={X}, {nameof(Y)}={Y}, " + endl +
-                $"{nameof(v)}={v}, {nameof(dv)}={dv.ToString()}, " + endl +
-                $"{nameof(phi)}={phi}, {nameof(dphi)}={dphi}, " + endl +
-                $"{nameof(Age)}={Age}";
+                   $"{nameof(v)}={v}, {nameof(dv)}={dv.ToString()}, " + endl +
+                   $"{nameof(phi)}={phi}, {nameof(dphi)}={dphi}, " + endl +
+                   $"{nameof(Age)}={Age}";
         }
 
         public override bool Equals(object? obj)
         {
             return Equals(obj as Spec);
+        }
+
+        public override int GetHashCode()
+        {
+            /// generate hash code
+            return base.GetHashCode()+X.GetHashCode()+Y.GetHashCode()+v.GetHashCode()+dv.GetHashCode()+phi.GetHashCode()+
+                dphi.GetHashCode()+Age.GetHashCode();
         }
 
         public bool Equals(Spec? other)
@@ -99,6 +119,7 @@ namespace LotcaClassLib
         {
             return (X - other.X) * (X - other.X) + (Y - other.Y) * (Y - other.Y);
         }
+
         public double Dist(Spec? other)
         {
             return Math.Sqrt(Dist2(other));
@@ -108,12 +129,11 @@ namespace LotcaClassLib
         {
             if (other == null) return false;
             if (other == this) return true;
-            if ( Math.Abs(X-other.X) > R ) return false;
+            if (Math.Abs(X - other.X) > R) return false;
             if (Math.Abs(Y - other.Y) > R) return false;
-            if (Dist2(other)>R*R) return false;
+            if (Dist2(other) > R * R) return false;
 
             return true;
         }
-
     }
 }
