@@ -23,6 +23,31 @@ namespace Lotca2ClassLib
             Value = randGen.NextNormalFromTo(From, To);
             return Value;
         }
+
+        public enum TestResult
+        {
+            LesserThanFrom = -1,
+            BetweenFromAndTo = 0,
+            BiggerThanTo = 1
+        }
+
+        public TestResult TestValue(RandGen randGen, bool GenerateNew = false, bool GetUniform = false)
+        {
+            if (GenerateNew)
+            {
+                if (GetUniform)
+                {
+                    UniformValue(randGen);
+                }
+                else
+                {
+                    NormalValue(randGen);
+                }
+            }
+            if (Value < From) return TestResult.LesserThanFrom;
+            if (Value > To) return TestResult.BiggerThanTo;
+            return TestResult.BetweenFromAndTo;
+        }
     }
 
     public class Interval01 : Interval 
@@ -37,32 +62,6 @@ namespace Lotca2ClassLib
             Value = randGen.NextNormalFromTo(0.0, 1.0);
             return Value;
         }
-
-        public enum TestResult
-        {
-            LesserThanFrom = -1,
-            BetweenFromAndTo = 0,
-            BiggerThanTo =1
-        }
-
-        public TestResult TestValue(RandGen randGen,bool GenerateNew = false, bool GetUniform = false)
-        {
-            if (GenerateNew) 
-            { 
-                if(GetUniform)
-                {
-                    UniformValue(randGen);
-                }
-                else
-                {
-                    NormalValue(randGen);
-                }
-            }
-            if ( Value<From ) return TestResult.LesserThanFrom;
-            if ( Value>To ) return TestResult.BiggerThanTo;
-            return TestResult.BetweenFromAndTo;
-        }
-
 
     }
 }

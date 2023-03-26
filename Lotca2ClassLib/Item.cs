@@ -72,6 +72,9 @@ namespace Lotca2ClassLib
         }
 
         ///
+        public bool IsNear(Item other, double R) => Point.IsNear(other.Point,R);
+
+        ///
         public double X { get => Point.X; set => Point.X = value; }
         public double Y { get => Point.Y; set => Point.Y = value; }
         ///

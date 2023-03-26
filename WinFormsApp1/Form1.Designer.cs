@@ -32,8 +32,12 @@
             toolStrip1 = new ToolStrip();
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
+            toolStripButton3 = new ToolStripButton();
             toolStripContainer1 = new ToolStripContainer();
+            plotView1 = new OxyPlot.WindowsForms.PlotView();
+            toolStripButton4 = new ToolStripButton();
             toolStrip1.SuspendLayout();
+            toolStripContainer1.ContentPanel.SuspendLayout();
             toolStripContainer1.TopToolStripPanel.SuspendLayout();
             toolStripContainer1.SuspendLayout();
             SuspendLayout();
@@ -41,10 +45,10 @@
             // toolStrip1
             // 
             toolStrip1.Dock = DockStyle.None;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2 });
-            toolStrip1.Location = new Point(21, 0);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2, toolStripButton3, toolStripButton4 });
+            toolStrip1.Location = new Point(3, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(160, 25);
+            toolStrip1.Size = new Size(283, 25);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -68,11 +72,22 @@
             toolStripButton2.Text = "Test data";
             toolStripButton2.Click += toolStripButton2_Click;
             // 
+            // toolStripButton3
+            // 
+            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripButton3.Image = (Image)resources.GetObject("toolStripButton3.Image");
+            toolStripButton3.ImageTransparentColor = Color.Magenta;
+            toolStripButton3.Name = "toolStripButton3";
+            toolStripButton3.Size = new Size(91, 22);
+            toolStripButton3.Text = "TwoSampleTest";
+            toolStripButton3.Click += toolStripButton3_Click;
+            // 
             // toolStripContainer1
             // 
             // 
             // toolStripContainer1.ContentPanel
             // 
+            toolStripContainer1.ContentPanel.Controls.Add(plotView1);
             toolStripContainer1.ContentPanel.Size = new Size(825, 308);
             toolStripContainer1.Dock = DockStyle.Fill;
             toolStripContainer1.Location = new Point(0, 0);
@@ -85,6 +100,29 @@
             // 
             toolStripContainer1.TopToolStripPanel.Controls.Add(toolStrip1);
             // 
+            // plotView1
+            // 
+            plotView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            plotView1.Location = new Point(12, 21);
+            plotView1.Name = "plotView1";
+            plotView1.PanCursor = Cursors.Hand;
+            plotView1.Size = new Size(801, 275);
+            plotView1.TabIndex = 0;
+            plotView1.Text = "plotView1";
+            plotView1.ZoomHorizontalCursor = Cursors.SizeWE;
+            plotView1.ZoomRectangleCursor = Cursors.SizeNWSE;
+            plotView1.ZoomVerticalCursor = Cursors.SizeNS;
+            // 
+            // toolStripButton4
+            // 
+            toolStripButton4.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripButton4.Image = (Image)resources.GetObject("toolStripButton4.Image");
+            toolStripButton4.ImageTransparentColor = Color.Magenta;
+            toolStripButton4.Name = "toolStripButton4";
+            toolStripButton4.Size = new Size(32, 22);
+            toolStripButton4.Text = "Run";
+            toolStripButton4.Click += toolStripButton4_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -95,6 +133,7 @@
             Text = "Form1";
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            toolStripContainer1.ContentPanel.ResumeLayout(false);
             toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             toolStripContainer1.TopToolStripPanel.PerformLayout();
             toolStripContainer1.ResumeLayout(false);
@@ -108,5 +147,8 @@
         private ToolStripButton toolStripButton1;
         private ToolStripContainer toolStripContainer1;
         private ToolStripButton toolStripButton2;
+        private ToolStripButton toolStripButton3;
+        private OxyPlot.WindowsForms.PlotView plotView1;
+        private ToolStripButton toolStripButton4;
     }
 }
